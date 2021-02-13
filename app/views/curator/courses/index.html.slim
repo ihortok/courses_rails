@@ -1,3 +1,6 @@
 h1 Listing courses
 
+- @courses.each do |course|
+  = render 'shared/course_card', course: course
+
 = link_to 'New Course', new_curator_course_path

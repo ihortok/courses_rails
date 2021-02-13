@@ -16,6 +16,8 @@ class Curator::CoursesController < Curator::BaseController
 
     respond_to do |format|
       if @course.save
+        @course.image.attach(params[:course][:image])
+
         format.html { redirect_to [:curator, @course], notice: 'Course was successfully created.' }
       else
         format.html { render :new }
