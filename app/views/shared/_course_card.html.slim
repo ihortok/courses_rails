@@ -1,0 +1,6 @@
+h2 
+  = course.title
+- if course.image.attached?
+  = image_tag course.image
+- else
+  = image_tag "/images/course_placeholder.jpg"

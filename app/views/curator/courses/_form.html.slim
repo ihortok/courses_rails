@@ -1,0 +1,25 @@
+= form_for [:curator, @course] do |f|
+  - if @course.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@course.errors.count, 'error')} prohibited this course from being saved:"
+      ul
+        - @course.errors.full_messages.each do |message|
+          li = message
+  = f.hidden_field :curator_id, value: current_user.id
+  .form-group
+    = f.label :title
+    = f.text_field :title
+  .form-group
+    = f.label :desc
+    = f.text_area :desc
+  .form-group
+    = f.label :image
+    = f.file_field :image
+  .form-group
+    = f.label :start_at
+    = f.date_field :start_at
+  .form-group
+    = f.label :end_at
+    = f.date_field :end_at
+  .ta-center
+    = f.submit 'Submit'
