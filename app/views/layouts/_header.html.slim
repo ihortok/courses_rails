@@ -1,0 +1,7 @@
+header
+  .container
+    nav
+      - if user_signed_in?
+        a.btn.btn-danger data-method="delete" href="#{destroy_user_session_path}" Sign out
+      - else
+        a.btn.btn-success href="#{new_user_registration_path}" Sign up
